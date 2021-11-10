@@ -29,6 +29,7 @@ dn = []
 scorea = []
 scoreh = []
 team = [] # home team
+ateam = [] # away team
 gtype = [] # game type
 
 # Main loop
@@ -45,6 +46,7 @@ for file in files:
     stadia = stadia + data[[16]][16].to_list()
     dn = dn + data[[12]][12].to_list()
     team = team + data[[6]][6].to_list()
+    ateam = ateam + data[[3]][3].to_list()
     gt = file[-8:-4]
     
     try:
@@ -89,8 +91,9 @@ scorea = pd.Series(scorea, name = 'Score_Away')
 scoreh = pd.Series(scoreh, name = 'Score_Home')
 winner = pd.Series(winner, name = 'Winner')
 team = pd.Series(team, name = 'Home_Team')
+ateam = pd.Series(ateam, name = 'Away_Team')
 gtype = pd.Series(gtype, name = 'Type')
-df = pd.concat([attendance, dates, dblh, dow, stadia, dn, scorea, scoreh, winner, team, gtype], axis = 1)
+df = pd.concat([attendance, dates, dblh, dow, stadia, dn, scorea, scoreh, winner, team, ateam, gtype], axis = 1)
 
 # Subset to remove non-season data (playoffs, etc.) that are outside of the window
 
