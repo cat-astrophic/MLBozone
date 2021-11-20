@@ -22,6 +22,13 @@ data['SO2'].values[data['SO2'].values < 0] = 0
 data['PM2.5'].values[data['PM2.5'].values < 0] = 0
 data['PM10'].values[data['PM10'].values < 0] = 0
 
+data['O3_AQI'].values[data['O3_AQI'].values < 1] = 1
+data['CO_AQI'].values[data['CO_AQI'].values < 1] = 1
+data['NO2_AQI'].values[data['NO2_AQI'].values < 1] = 1
+data['SO2_AQI'].values[data['SO2_AQI'].values < 1] = 1
+data['PM2.5_AQI'].values[data['PM2.5_AQI'].values < 1] = 1
+data['PM10_AQI'].values[data['PM10_AQI'].values < 1] = 1
+
 # Creating flows data
 
 coflows = []
