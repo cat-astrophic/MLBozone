@@ -13,6 +13,15 @@ filepath = 'C:/Users/' + username + '/Documents/Data/mlbozone/'
 
 data = pd.read_csv(filepath + 'final_data_set.csv')
 
+# Cleaning pollution data
+
+data['O3'].values[data['O3'].values < 0] = 0
+data['CO'].values[data['CO'].values < 0] = 0
+data['NO2'].values[data['NO2'].values < 0] = 0
+data['SO2'].values[data['SO2'].values < 0] = 0
+data['PM2.5'].values[data['PM2.5'].values < 0] = 0
+data['PM10'].values[data['PM10'].values < 0] = 0
+
 # Creating flows data
 
 coflows = []
